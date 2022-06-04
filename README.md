@@ -1,8 +1,10 @@
 # moss.py
 
-A Python client for [Moss](http://theory.stanford.edu/~aiken/moss/): A System for Detecting Software Similarity
+A Python client for [Moss](http://theory.stanford.edu/~aiken/moss/): A System for Detecting Software Similarity. This repository is endorsed by the [Moss](http://theory.stanford.edu/~aiken/moss/) team.
 
 ## Introduction
+
+Original [moss script](http://moss.stanford.edu/general/scripts/mossnet) is written in Perl, but it is not easy to use.  
 
 It is a Python interface for [Moss](http://theory.stanford.edu/~aiken/moss/) client. It was written for [AutoGrader](https://github.com/BilalZaib/AutoGrader) for handling similarity in Python assignment submission. 
 
@@ -16,10 +18,18 @@ pip install mosspy
 
 ### Usage
 
+CSCI 551 checker:
+
+```shell
+python csci551_plariarism_check.py
+```
+
+Other samples:
+
 ```python
 import mosspy
 
-userid = 987654321
+userid = 987654321 # Change this to your own userid
 
 m = mosspy.Moss(userid, "python")
 
@@ -41,9 +51,10 @@ print ("Report Url: " + url)
 m.saveWebPage(url, "submission/report.html")
 
 # Download whole report locally including code diff links
-mosspy.download_report(url, "submission/report/", connections=8, log_level=10, on_read=lambda url: print('*', end='', flush=True)) 
+mosspy.download_report(url, "submission/report/", connections=1, log_level=10, on_read=lambda url: print('*', end='', flush=True)) 
 # log_level=logging.DEBUG (20 to disable)
 # on_read function run for every downloaded file
+# Use number of connections as 1, since moss server has limits to per day connections.
 ```
 
 ## Python Compatibility

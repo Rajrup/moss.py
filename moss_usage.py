@@ -1,11 +1,11 @@
 import mosspy
 
-userid = 987654321 # add your userid here
+userid = 236615579 # add your userid here
 
 m = mosspy.Moss(userid, "python")
 
-#m.addBaseFile("submission/a01.py")
-#m.addBaseFile("submission/test_student.py")
+m.addBaseFile("submission/a01.py")
+m.addBaseFile("submission/test_student.py")
 
 # Submission Files
 m.addFile("submission/a01-sample.py")
@@ -22,6 +22,7 @@ print ("Report URL: " + url)
 # Save report file
 m.saveWebPage(url, "submission/report.html")
 
-mosspy.download_report(url, "submission/report/", connections=8, log_level=10, on_read=lambda url: print('*', end='', flush=True)) 
+mosspy.download_report(url, "submission/report/", connections=1, log_level=10, on_read=lambda url: print('*', end='', flush=True)) 
 # log_level=logging.DEBUG (20 to disable)
 # on_read function run for every downloaded file
+# Use number of connections as 1, since moss server has limits to per day connections.
