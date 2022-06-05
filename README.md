@@ -10,21 +10,31 @@ It is a Python interface for [Moss](http://theory.stanford.edu/~aiken/moss/) cli
 
 It was written using the [original bash script/documentation](http://moss.stanford.edu/general/scripts.html) and its [PHP](https://github.com/Phhere/MOSS-PHP) dialect.
 
-### Installation
+## Installation
  
 ```shell
 pip install mosspy
 ```
 
-### Usage
+## Usage
 
-CSCI 551 checker:
+### CSCI 551 checker
+
+Few steps before running the plagiarism checker `csci551_plariarism_check.py`:
+
+- Change the `work_dir` to the directory containing the base code alongwith current and previous year submissions.
+- Change the variable `lab` to the lab number you want to run - `lab1`, `lab2`, `lab3`.
+- Change programming language, e.g. `python` for lab2, while `c` or `cpp` (some students do develop in C++) for other labs.
+- Obtain a new userid from Moss and update `userid` variable. Check the section **Registering for Moss** in this [page](http://theory.stanford.edu/~aiken/moss/).
+- Run the sript as follows:
 
 ```shell
 python csci551_plariarism_check.py
 ```
 
-Other samples:
+You should see the results under the `report` directory (last line of the output has the entire path).
+
+### Other samples
 
 ```python
 import mosspy
